@@ -206,7 +206,7 @@ function filter_gyms() {
   
   if (slots_filter.toLowerCase().indexOf("all") === 0 ||
     slots_filter.toLowerCase().indexOf("select") === 0) {
-    slots_filter = "";
+    slots_filter = "ALL";
     console.log("Available slots filter cleared");
   }
   
@@ -236,8 +236,8 @@ function filter_gyms() {
 	console.log("Slots:", slots_value);
 	
     if (team_value.indexOf(team_filter) > -1 && 
-        ((slots_value >= slots_filter && slots_value.indexOf("FULL") == -1) || (slots_value == slots_filter && slots_filter.indexOf("FULL") >= -1)) &&
-        battle_value.indexOf(battle_filter) > -1 && //TODO: Battle and slots.
+        ((slots_value >= slots_filter && slots_value.indexOf("FULL") == -1) || (slots_value == slots_filter && slots_filter.indexOf("FULL") >= -1) || slots_filter.indexOf("ALL") > -1) &&
+        battle_value.indexOf(battle_filter) > -1 &&
         city_value.indexOf(city_filter) > -1) {
       tr[i].style.display = "";
     } else {
