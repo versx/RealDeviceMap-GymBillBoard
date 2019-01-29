@@ -136,7 +136,7 @@ WHERE
   // Free result set
   unset($result);
   } else{
-    echo "<p>No field research quests available.</p>";
+    echo "<p>No gyms found.</p>";
   }
 } catch(PDOException $e){
   die("ERROR: Could not able to execute $sql. " . $e->getMessage());
@@ -169,14 +169,10 @@ if ($google_adsense_id != "") {
 
 function get_team($team_id) {
   switch ($team_id) {
-    case "1":
-      return "Mystic";
-    case "2":
-      return "Valor";
-    case "3":
-      return "Instinct";
-    default:
-      return "Neutral";
+    case "1": return "Mystic";
+    case "2": return "Valor";
+    case "3": return "Instinct";
+    default:  return "Neutral";
   }
 }
 
@@ -190,8 +186,8 @@ function get_team($team_id) {
 
 <script type="text/javascript">
 $(document).on("click", ".delete", function(){
-	$(this).parents("tr").remove();
-	$(".add-new").removeAttr("disabled");
+  $(this).parents("tr").remove();
+  $(".add-new").removeAttr("disabled");
 });
 
 function filter_gyms() {
@@ -242,7 +238,7 @@ function filter_gyms() {
     if (team_value.indexOf(team_filter) > -1 && 
         (slots_value >= slots_filter && slots_value.indexOf("FULL") == -1) &&
         battle_value.indexOf(battle_filter) > -1 && //TODO: Battle and slots.
-		city_value.indexOf(city_filter) > -1) {
+        city_value.indexOf(city_filter) > -1) {
       tr[i].style.display = "";
     } else {
       tr[i].style.display = "none";
