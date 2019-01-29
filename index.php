@@ -232,9 +232,7 @@ function filter_gyms() {
     var slots_value = table.rows[i].cells[1].innerHTML.toUpperCase();
 	var battle_value = table.rows[i].cells[3].innerHTML.toUpperCase();
     var city_value = table.rows[i].cells[4].innerHTML.toUpperCase();
-	
-	console.log("Slots:", slots_value);
-	
+
     if (team_value.indexOf(team_filter) > -1 && 
         ((slots_value >= slots_filter && slots_value.indexOf("FULL") == -1) || (slots_value == slots_filter && slots_filter.indexOf("FULL") >= -1) || slots_filter.indexOf("ALL") > -1) &&
         battle_value.indexOf(battle_filter) > -1 &&
