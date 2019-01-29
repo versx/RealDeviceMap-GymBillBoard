@@ -236,7 +236,7 @@ function filter_gyms() {
 	console.log("Slots:", slots_value);
 	
     if (team_value.indexOf(team_filter) > -1 && 
-        (slots_value >= slots_filter && slots_value.indexOf("FULL") == -1) &&
+        ((slots_value >= slots_filter && slots_value.indexOf("FULL") == -1) || (slots_value == slots_filter && slots_filter.indexOf("FULL") >= -1)) &&
         battle_value.indexOf(battle_filter) > -1 && //TODO: Battle and slots.
         city_value.indexOf(city_filter) > -1) {
       tr[i].style.display = "";
